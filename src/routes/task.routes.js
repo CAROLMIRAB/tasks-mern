@@ -8,8 +8,10 @@ router.get('/', async (req, res) => {
     res.json(tasks);
 });
 
-router.post('/', async (req, res)=>{
-    console.log(req.body);
-})
+router.post('/', async (req, res) => {
+    const {title, description} = req.body;
+    const task = new Task({title,description});
+    res.json('received');
+});
 
 module.exports = router;
